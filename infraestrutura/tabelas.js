@@ -7,7 +7,7 @@ class Tabelas {
     }
 
     criarClientes(){
-        const sql = 'CREATE TABLE `Oficina`.`Clientes` ( \
+        const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`Clientes` ( \
             `idClientes` INT NOT NULL AUTO_INCREMENT, \
             `nome` VARCHAR(45) NOT NULL, \
             `cpf` VARCHAR(45) NULL, \

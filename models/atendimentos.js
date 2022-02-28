@@ -1,26 +1,16 @@
 const conexao = require('../infraestrutura/conexao')
 const moment = require('moment')
 
-class Atendimento{
-    adiciona(atendimento, res){
+class Cliente{
+    adiciona(cliente, res){
 
-        const dataCriacao = moment().format('YYYY-MM-DD HH:MM:SS')
-        const data = moment(atendimento.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
-
-        const dataValida = moment(data).isSameOrAfter(dataCriacao)
-        const clienteValido = atendimento.cliente.length >=3
+        const clienteValido = cliente.nome.length >=5
 
         const validacoes = [
             {
-                nome: 'data',
-                valido: dataValida,
-                mensagem: 'data deve ser maior ou igual a atual'
-
-            },
-            {
-                nome: 'cliente',
+                nome: 'nome',
                 valido: clienteValido,
-                mensagem: 'nome deve ter pelo menos 3 caracteres'
+                mensagem: 'nome deve ter pelo menos 5 caracteres'
             }
         ]
 
@@ -30,14 +20,13 @@ class Atendimento{
         if (existemErros) {
             res.status(400).json(erros)
         } else{
-            const atendimentoDatado = {...atendimento, dataCriacao, data}
             const sql = 'INSERT INTO Clientes SET ?'
 
-            conexao.query(sql, atendimentoDatado, (erro, resultados)=>{
+            conexao.query(sql, cliente, (erro, resultados)=>{
                 if (erro) {
                     res.status(400).json(erro)
                 } else{
-                    res.status(201).json({atendimento})
+                    res.status(201).json({cliente})
                 }
             })
         }
@@ -56,7 +45,7 @@ class Atendimento{
     }
 
     buscaPorId(id, res){
-        const sql = 'SELECT * FROM Clientes WHERE id = ' + id
+        const sql = 'SELECT * FROM Clientes WHERE idClientes = ' + id
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
@@ -71,7 +60,7 @@ class Atendimento{
             valores.data = moment(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
         }
 
-        const sql = 'UPDATE Clientes SET ? WHERE id=?'
+        const sql = 'UPDATE Clientes SET ? WHERE idClientes=?'
         conexao.query(sql, [valores, id], (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
@@ -82,7 +71,7 @@ class Atendimento{
     }
 
     deleta(id, res){
-        const sql = 'DELETE FROM Clientes WHERE id = ?'
+        const sql = 'DELETE FROM Clientes WHERE idClientes = ?'
 
         conexao.query(sql, id, (erro, resultados)=>{
             if (erro) {
@@ -94,4 +83,4 @@ class Atendimento{
     }
 }
 
-module.exports = new Atendimento
+module.exports = new Cliente
