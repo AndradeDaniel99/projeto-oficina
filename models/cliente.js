@@ -56,9 +56,6 @@ class Cliente{
     }
 
     altera(id, valores, res){
-        if (valores.data) {
-            valores.data = moment(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
-        }
 
         const sql = 'UPDATE Clientes SET ? WHERE idClientes=?'
         conexao.query(sql, [valores, id], (erro, resultados)=>{

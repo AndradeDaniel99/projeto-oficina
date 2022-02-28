@@ -40,9 +40,6 @@ class Carro{
     }
 
     altera(id, valores, res){
-        if (valores.data) {
-            valores.data = moment(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
-        }
 
         const sql = 'UPDATE Carros SET ? WHERE idCarros=?'
         conexao.query(sql, [valores, id], (erro, resultados)=>{

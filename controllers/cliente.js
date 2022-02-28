@@ -17,7 +17,7 @@ module.exports = app => {
         Cliente.adiciona(cliente, res)
     })
 
-    app.patch('/cliente/:id', (req, res)=> {
+    app.put('/cliente/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
         Cliente.altera(id, valores, res)
