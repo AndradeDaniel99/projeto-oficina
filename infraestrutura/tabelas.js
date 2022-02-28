@@ -31,6 +31,7 @@ class Tabelas {
         })
     }
 
+    // comentario
     criarCarros(){
         const sql = 'CREATE TABLE IF NOT EXISTS `oficina`.`carros` (\
             `idCarros` INT NOT NULL AUTO_INCREMENT,\
