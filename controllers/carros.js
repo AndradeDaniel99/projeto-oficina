@@ -13,18 +13,18 @@ module.exports = app => {
 
     app.post('/veiculo', (req, res)=> {
         console.log(req.body)
-        const Carro = req.body
-        Carro.adiciona_carro(Carro, res)
+        const carro = req.body
+        Carro.adiciona(carro, res)
     })
 
-    app.patch('/veiculo/:id', (req, res)=> {
+    app.put('/veiculo/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
         Carro.altera(id, valores, res)
     })
 
     app.delete('/veiculo/:id', (req, res)=>{
-        const id = parseInt(req.params.idCarros)
+        const id = parseInt(req.params.id)
         
         Carro.deleta(id, res)
     })

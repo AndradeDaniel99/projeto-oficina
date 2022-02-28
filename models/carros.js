@@ -2,7 +2,7 @@ const conexao = require('../infraestrutura/conexao')
 const moment = require('moment')
 
 class Carro{
-    adiciona_carro(carro, res){
+    adiciona(carro, res){
 
         const sql = 'INSERT INTO oficina.Carros SET ?'
 

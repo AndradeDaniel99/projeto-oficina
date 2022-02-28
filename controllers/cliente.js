@@ -13,8 +13,8 @@ module.exports = app => {
 
     app.post('/cliente', (req, res)=> {
         console.log(req.body)
-        const Cliente = req.body
-        Cliente.adiciona(Cliente, res)
+        const cliente = req.body
+        Cliente.adiciona(cliente, res)
     })
 
     app.patch('/cliente/:id', (req, res)=> {
@@ -24,7 +24,7 @@ module.exports = app => {
     })
 
     app.delete('/cliente/:id', (req, res)=>{
-        const id = parseInt(req.params.idClientes)
+        const id = parseInt(req.params.id)
         
         Cliente.deleta(id, res)
     })
