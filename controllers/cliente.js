@@ -1,31 +1,31 @@
-const Atendimento = require('../models/cliente')
+const Cliente = require('../models/cliente')
 
 module.exports = app => {
     app.get('/cliente', (req, res)=> {
-        Atendimento.lista(res)
+        Cliente.lista(res)
     })
 
     app.get('/cliente/:id', (req, res)=> {
-        const id = parseInt(req.params.id)
+        const id = parseInt(req.params.idCliente)
         const valores = req.body
-        Atendimento.buscaPorId(id, res)
+        Cliente.buscaPorId(id, res)
     })
 
     app.post('/cliente', (req, res)=> {
         console.log(req.body)
-        const atendimento = req.body
-        Atendimento.adiciona(atendimento, res)
+        const Cliente = req.body
+        Cliente.adiciona(Cliente, res)
     })
 
     app.patch('/cliente/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Atendimento.altera(id, valores, res)
+        Cliente.altera(id, valores, res)
     })
 
     app.delete('/cliente/:id', (req, res)=>{
-        const id = parseInt(req.params.id)
+        const id = parseInt(req.params.idClientes)
         
-        Atendimento.deleta(id, res)
+        Cliente.deleta(id, res)
     })
 }

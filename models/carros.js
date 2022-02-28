@@ -2,34 +2,18 @@ const conexao = require('../infraestrutura/conexao')
 const moment = require('moment')
 
 class Carro{
-    adiciona(Carro, res){
+    adiciona_carro(carro, res){
 
-        const CarroValido = Carro.nome.length >=5
+        const sql = 'INSERT INTO oficina.Carros SET ?'
 
-        const validacoes = [
-            {
-                nome: 'nome',
-                valido: CarroValido,
-                mensagem: 'nome deve ter pelo menos 5 caracteres'
+        conexao.query(sql, carro, (erro, resultados)=>{
+            if (erro) {
+                res.status(400).json(erro)
+            } else{
+                res.status(201).json({carro})
             }
-        ]
-
-        const erros = validacoes.filter(campo => !campo.valido)
-        const existemErros = erros.length
-
-        if (existemErros) {
-            res.status(400).json(erros)
-        } else{
-            const sql = 'INSERT INTO Carros SET ?'
-
-            conexao.query(sql, Carro, (erro, resultados)=>{
-                if (erro) {
-                    res.status(400).json(erro)
-                } else{
-                    res.status(201).json({Carro})
-                }
-            })
-        }
+        })
+        
     }
 
     lista(res){

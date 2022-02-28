@@ -71,9 +71,9 @@ class Cliente{
     }
 
     deleta(id, res){
-        const sql = 'DELETE FROM Clientes WHERE idClientes = ?'
+        const sql = 'DELETE FROM Clientes WHERE idClientes = ' + id
 
-        conexao.query(sql, id, (erro, resultados)=>{
+        conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
             } else {
