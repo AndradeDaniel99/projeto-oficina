@@ -32,7 +32,7 @@ class Tabelas {
     }
 
     criarCarros(){
-        const sql = 'CREATE TABLE `oficina`.`carros` (\
+        const sql = 'CREATE TABLE IF NOT EXISTS `oficina`.`carros` (\
             `idCarros` INT NOT NULL,\
             `PLACA` VARCHAR(8) NOT NULL,\
             `ANO` YEAR(4) NULL,\
