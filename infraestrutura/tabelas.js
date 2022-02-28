@@ -48,7 +48,7 @@ class Tabelas {
             if (erro) {
                 console.log(erro)
             } else{
-                console.log('Tabela Clientes criada com sucesso')
+                console.log('Tabela de Carros criada com sucesso')
             }
         })
     }
