@@ -95,3 +95,6 @@ class Atendimento{
 }
 
 module.exports = new Atendimento
+
+
+/* viadaooo */
