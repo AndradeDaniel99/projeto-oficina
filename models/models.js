@@ -4,7 +4,7 @@ const moment = require('moment');
  class Models
 {
 
-    tipoContato;
+    tabela;
     caminho;
 
 
@@ -29,8 +29,8 @@ const moment = require('moment');
         if (existemErros) {
             res.status(400).json(erros)
         } else{
-            console.log(this.tipoContato)
-            const sql = 'INSERT INTO '+ this.tipoContato + ' SET ?'
+            console.log(this.tabela)
+            const sql = 'INSERT INTO '+ this.tabela + ' SET ?'
 
             conexao.query(sql, contato, (erro, resultados)=>{
                 if (erro) {
@@ -43,7 +43,7 @@ const moment = require('moment');
     }
 
     lista(res){
-        const sql = 'SELECT * FROM'+tipoContato
+        const sql = 'SELECT * FROM'+tabela
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
@@ -55,7 +55,7 @@ const moment = require('moment');
     }
 
     buscaPorId(id, res){
-        const sql = 'SELECT * FROM '+tipoContato+' WHERE id = ' + id
+        const sql = 'SELECT * FROM '+tabela+' WHERE id = ' + id
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
@@ -67,7 +67,7 @@ const moment = require('moment');
 
     altera(id, valores, res){
 
-        const sql = 'UPDATE'+tipoContato+' SET ? WHERE id=?'
+        const sql = 'UPDATE'+tabela+' SET ? WHERE id=?'
         conexao.query(sql, [valores, id], (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
@@ -78,7 +78,7 @@ const moment = require('moment');
     }
 
     deleta(id, res){
-        const sql = 'DELETE FROM'+tipoContato+ 'WHERE id = ' + id
+        const sql = 'DELETE FROM'+tabela+ 'WHERE id = ' + id
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {

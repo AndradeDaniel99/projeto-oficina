@@ -1,12 +1,12 @@
 const conexao = require('../infraestrutura/conexao')
-const moment = require('moment');
 const Models = require('./models');
 
 class Order extends Models{
 
-    tipoContato = 'order'
+    tabela = 'order'
     caminho = '/order'
 
 
 }
 
+module.exports = new Order()
