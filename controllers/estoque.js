@@ -2,13 +2,13 @@ const Estoque = require('../models/estoque')
 
 module.exports = app => {
     app.get('/estoque', (req, res)=> {
-        Estoque.lista(res)
+        Estoque.lista(Estoque.tabela, res)
     })
 
     app.get('/estoque/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Estoque.buscaPorId(id, res)
+        Estoque.buscaPorId(id, Estoque.tabela, res)
     })
 
     app.post('/estoque', (req, res)=> {
@@ -20,12 +20,18 @@ module.exports = app => {
     app.put('/estoque/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Estoque.altera(id, valores, res)
+        Estoque.altera(id, valores, Estoque.tabela, res)
+    })
+
+    app.patch('/estoque/:id', (req, res)=> {
+        const id = parseInt(req.params.id)
+        const valores = req.body
+        Estoque.altera(id, valores, Estoque.tabela, res)
     })
 
     app.delete('/estoque/:id', (req, res)=>{
         const id = parseInt(req.params.id)
         
-        Estoque.deleta(id, res)
+        Estoque.deleta(id, Estoque.tabela, res)
     })
 }
