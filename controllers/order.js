@@ -5,7 +5,7 @@ module.exports = app => {
         Order.lista(res)
     })
 
-    app.get('/Order/:id', (req, res)=> {
+    app.get('/order/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
         Order.buscaPorId(id, res)
