@@ -7,7 +7,9 @@ class Tabelas {
        this.criarClientes()
        this.criarFornecedor()
        this.criarProduto()
+       this.criarOrder()
        this.criarEstoque()
+       
     }
 
     criarClientes(){
@@ -108,7 +110,7 @@ class Tabelas {
     }
 
     criarOrder(){
-        const sql = 'CREATE TABLE `Oficina`.`order` (\
+        const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`order` (\
             `id` INT NOT NULL AUTO_INCREMENT,\
             `idCarro` INT NULL,\
             `idCliente` INT NOT NULL,\
