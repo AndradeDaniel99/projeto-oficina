@@ -9,7 +9,6 @@ const moment = require('moment')
 
     adiciona(produto, res){
 
-        
         const createdAt = moment().format('YYYY-MM-DD HH:MM:SS')
         const produtoValido = produto.nome.length >=3
 

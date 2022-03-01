@@ -77,14 +77,14 @@ const moment = require('moment');
         })
     }
 
-    deleta(id, res){
-        const sql = 'DELETE FROM'+tabela+ 'WHERE id = ' + id
+    deleta(id, tabela, res){
+        const sql = 'DELETE FROM '+tabela+ ' WHERE id = ' + id
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
             } else {
-                res.status(200).json({id})
+                res.status(200).json(resultados)
             }
         })
     }

@@ -31,6 +31,6 @@ module.exports = app => {
     app.delete('/veiculo/:id', (req, res)=>{
         const id = parseInt(req.params.id)
         
-        Carro.deleta(id, res)
+        Carro.deleta(id, Carro.tabela, res)
     })
 }
