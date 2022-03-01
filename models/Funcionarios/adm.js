@@ -5,6 +5,5 @@ class Adm extends Funcionario{
     
     posicao =  'adm';
 
-
 }
 module.exports = Adm

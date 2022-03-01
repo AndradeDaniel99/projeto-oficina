@@ -1,13 +1,14 @@
 
 const conexao = require('../infraestrutura/conexao')
-const moment = require('moment')
-const Contato = require ('./contato')
+const Models = require('./models')
 
 
- class Cliente extends Contato{
+
+ class Cliente extends Models{
     
 
     tipoContato = 'clientes'
+    Caminho = '/cliente'
 
 
 }

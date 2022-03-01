@@ -1,10 +1,11 @@
 const conexao = require('../infraestrutura/conexao')
-const moment = require('moment')
+const moment = require('moment');
 
- class Contato
+ class Models
 {
 
     tipoContato;
+    Caminho;
 
 
     adiciona(contato, res){
@@ -89,4 +90,4 @@ const moment = require('moment')
     }
 }
 
-module.exports = Contato
+module.exports = Models
