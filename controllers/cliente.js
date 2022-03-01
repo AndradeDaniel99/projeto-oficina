@@ -2,13 +2,13 @@ const Cliente = require('../models/cliente')
 
 module.exports = app => {
     app.get('/cliente', (req, res)=> {
-        Cliente.lista(res)
+        Cliente.lista(Cliente.tabela, res)
     })
 
     app.get('/cliente/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Cliente.buscaPorId(id, res)
+        Cliente.buscaPorId(id, Cliente.tabela, res)
     })
 
     app.post('/cliente', (req, res)=> {
@@ -20,12 +20,18 @@ module.exports = app => {
     app.put('/cliente/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Cliente.altera(id, valores, res)
+        Cliente.altera(id, valores, Cliente.tabela, res)
+    })
+
+    app.patch('/cliente/:id', (req, res)=> {
+        const id = parseInt(req.params.id)
+        const valores = req.body
+        Cliente.altera(id, valores, Cliente.tabela, res)
     })
 
     app.delete('/cliente/:id', (req, res)=>{
         const id = parseInt(req.params.id)
         
-        Cliente.deleta(id, res)
+        Cliente.deleta(id, Cliente.tabela, res)
     })
 }
