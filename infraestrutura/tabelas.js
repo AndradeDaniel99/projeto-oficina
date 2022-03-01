@@ -6,6 +6,7 @@ class Tabelas {
        this.criarCarros() 
        this.criarClientes()
        this.criarFornecedor()
+       this.criarProduto()
     }
 
     criarClientes(){
@@ -32,7 +33,6 @@ class Tabelas {
         })
     }
 
-    // comentario
     criarCarros(){
         const sql = 'CREATE TABLE IF NOT EXISTS `oficina`.`carros` (\
             `ID` INT NOT NULL AUTO_INCREMENT,\
@@ -77,6 +77,10 @@ class Tabelas {
                 console.log('Tabela de fornecedor criada com sucesso')
             }
         })
+    }
+
+    criarProduto(){
+        
     }
 }
 
