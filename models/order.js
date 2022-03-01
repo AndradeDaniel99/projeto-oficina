@@ -5,7 +5,8 @@ const Models = require('./models');
 class Order extends Models{
 
     tipoContato = 'order'
-    Caminho = '/order'
+    caminho = '/order'
 
 
 }
+

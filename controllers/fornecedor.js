@@ -1,7 +1,5 @@
-const Funcionalidade = require('./Funcionalidades')
+//const Funcionalidade = require('./Funcionalidades')
+import * as func from './Funcionalidades'
 const fornecedor = require('../models/fornecedor')
 
-module.exports = app => {
-    Funcionalidade.ler(fornecedor.caminho)
-};
-
+func.ler(fornecedor.caminho)

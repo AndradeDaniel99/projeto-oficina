@@ -5,7 +5,7 @@ const moment = require('moment');
 {
 
     tipoContato;
-    Caminho;
+    caminho;
 
 
     adiciona(contato, res){

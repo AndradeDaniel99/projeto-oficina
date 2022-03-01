@@ -1,13 +1,7 @@
 const conexao = require('../infraestrutura/conexao')
 const Models = require('../models/models')
-
-class Funcionalidade
-{
-
-
-
-    ler(modelo)
-    {
+module.exports = {
+    ler(modelo){
         //console.log(modelo.caminho)
         module.exports = app =>
         {
@@ -23,13 +17,10 @@ class Funcionalidade
                 const valores = req.body
                 Cliente.buscaPorId(id, res)
             })
-
         }
+    },
 
-    }
-
-    Modifica()
-    {
+    modifica(){
 
         module.exports = app => 
         {
@@ -51,11 +42,6 @@ class Funcionalidade
                 
                 Cliente.deleta(id, res)
             })
-
-        }            
-
+        }
     }
-
-}     
-
-module.exports = new Funcionalidade()
+}
