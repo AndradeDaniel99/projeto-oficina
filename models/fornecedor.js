@@ -7,7 +7,7 @@ const Models = require('./models')
     
 
     tipoContato = 'fornecedor'
-    Caminho = '/fornecedor'
+    caminho = '/fornecedor'
 
 }
 module.exports = Fornecedor

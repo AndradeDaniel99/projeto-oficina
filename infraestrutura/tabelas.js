@@ -106,6 +106,30 @@ class Tabelas {
         })
 
     }
+
+    criarOrder(){
+        const sql = 'CREATE TABLE `Oficina`.`order` (\
+            `id` INT NOT NULL AUTO_INCREMENT,\
+            `idCarro` INT NULL,\
+            `idCliente` INT NOT NULL,\
+            `idProduto` INT NULL,\
+            `idFuncionario` INT NOT NULL,\
+            `situacao` VARCHAR(45) NULL,\
+            `data_entrada` DATETIME NOT NULL,\
+            `data_servico` DATETIME NOT NULL,\
+            `obs_interna` VARCHAR(45) NULL,\
+            `obs_cliente` VARCHAR(45) NOT NULL,\
+            PRIMARY KEY (`id`));\
+          '
+
+        this.conexao.query(sql, erro => {
+            if (erro) {
+                console.log(erro)
+            } else{
+                console.log('Tabela de ordem de servico criada com sucesso')
+            }
+        })
+    }
 }
 
 module.exports = new Tabelas

@@ -1,17 +1,18 @@
-/*const conexao = require('../infraestrutura/conexao')
+const conexao = require('../infraestrutura/conexao')
 const Models = require('../models/models')
 
-export class Funcionalidade
+class Funcionalidade
 {
 
 
 
     ler(modelo)
     {
+        console.log(modelo.caminho)
         module.exports = app =>
         {
             
-            app.get(modelo.Caminho, (req, res)=> 
+            app.get(modelo.caminho, (req, res)=> 
             {
                 modelo.lista(res)
             })
@@ -56,4 +57,4 @@ export class Funcionalidade
 
 }     
 
-module.exports = Funcionalidade*/
+module.exports = new Funcionalidade()
