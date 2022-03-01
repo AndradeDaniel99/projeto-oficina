@@ -5,11 +5,12 @@ class Tabelas {
 
        this.criarCarros() 
        this.criarClientes()
+       this.criarFornecedor()
     }
 
     criarClientes(){
         const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`Clientes` ( \
-            `idClientes` INT NOT NULL AUTO_INCREMENT, \
+            `ID` INT NOT NULL AUTO_INCREMENT, \
             `nome` VARCHAR(45) NOT NULL, \
             `cpf` VARCHAR(45) NULL, \
             `cnpj` VARCHAR(45) NULL, \
@@ -34,7 +35,7 @@ class Tabelas {
     // comentario
     criarCarros(){
         const sql = 'CREATE TABLE IF NOT EXISTS `oficina`.`carros` (\
-            `idCarros` INT NOT NULL AUTO_INCREMENT,\
+            `ID` INT NOT NULL AUTO_INCREMENT,\
             `PLACA` VARCHAR(8) NOT NULL,\
             `ANO` YEAR(4) NULL,\
             `COR` VARCHAR(10) NULL,\
@@ -50,6 +51,30 @@ class Tabelas {
                 console.log(erro)
             } else{
                 console.log('Tabela de Carros criada com sucesso')
+            }
+        })
+    }
+
+    criarFornecedor(){
+        const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`fornecedor` (  \
+            `id` INT NOT NULL AUTO_INCREMENT,  \
+            `nome` VARCHAR(45) NOT NULL, \
+            `cnpj` VARCHAR(45) NOT NULL,\
+            `nome_fantasia` VARCHAR(45) NOT NULL,\
+            `razao_social` VARCHAR(45) NOT NULL,\
+            `telefone1` VARCHAR(45) NULL,\
+            `telefone2` VARCHAR(45) NULL,\
+            `celular` VARCHAR(45) NULL,\
+            `endereco` VARCHAR(45) NULL,\
+            `email` VARCHAR(45) NULL,\
+            PRIMARY KEY (`id`));'
+          
+
+        this.conexao.query(sql, erro => {
+            if (erro) {
+                console.log(erro)
+            } else{
+                console.log('Tabela de fornecedor criada com sucesso')
             }
         })
     }
