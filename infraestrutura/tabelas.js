@@ -38,13 +38,12 @@ class Tabelas {
         const sql = 'CREATE TABLE IF NOT EXISTS `oficina`.`carros` (\
             `ID` INT NOT NULL AUTO_INCREMENT,\
             `PLACA` VARCHAR(8) NOT NULL,\
+            `idCliente` INT NOT NULL,\
             `ANO` YEAR(4) NULL,\
             `COR` VARCHAR(10) NULL,\
             `MARCA` VARCHAR(15) NULL,\
             `MODELO` VARCHAR(15) NULL,\
             PRIMARY KEY (`ID`))\
-          ENGINE = InnoDB\
-          DEFAULT CHARACTER SET = utf8;\
           '
 
         this.conexao.query(sql, erro => {
@@ -133,9 +132,9 @@ class Tabelas {
     }
 
     criarEstoque(){
-        const sql = 'CREATE TABLE `Oficina`.`estoque` (\
+        const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`estoque` (\
             `id` INT NOT NULL AUTO_INCREMENT,\
-            `nomeProduto` VARCHAR(45) NOT NULL,\
+            `nome` VARCHAR(45) NOT NULL,\
             `nome_familia` VARCHAR(45) NOT NULL,\
             `codigo_universal` VARCHAR(45) NOT NULL,\
             `quantidade` INT NOT NULL,\
