@@ -10,6 +10,5 @@ const Contato = require ('./contato')
     tipoContato = 'clientes'
 
 
-
 }
 module.exports = new Cliente()
