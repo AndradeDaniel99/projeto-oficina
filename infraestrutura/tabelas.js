@@ -7,6 +7,7 @@ class Tabelas {
        this.criarClientes()
        this.criarFornecedor()
        this.criarProduto()
+       this.criarEstoque()
     }
 
     criarClientes(){
@@ -129,6 +130,20 @@ class Tabelas {
                 console.log('Tabela de ordem de servico criada com sucesso')
             }
         })
+    }
+
+    criarEstoque(){
+        const sql = 'CREATE TABLE `Oficina`.`estoque` (\
+            `id` INT NOT NULL AUTO_INCREMENT,\
+            `nomeProduto` VARCHAR(45) NOT NULL,\
+            `nome_familia` VARCHAR(45) NOT NULL,\
+            `codigo_universal` VARCHAR(45) NOT NULL,\
+            `quantidade` INT NOT NULL,\
+            `updatedAt` DATETIME NULL,\
+            `createdAt` DATETIME NOT NULL,\
+            `historico` JSON NULL,\
+            PRIMARY KEY (`id`));\
+          '
     }
 }
 
