@@ -5,11 +5,6 @@ const moment = require('moment')
 {
 
     tipoContato;
-    /*constructor(valor){
-
-    let tipoContato = valor;
-
-    }*/
 
 
     adiciona(contato, res){
