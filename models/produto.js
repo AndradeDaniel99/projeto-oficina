@@ -4,7 +4,7 @@ const Models = require('./models.js')
  class Produto extends Models
 {
     tabela = 'produto'
-    Caminho = '/produto'
+    caminho = '/produto'
 
 }
 

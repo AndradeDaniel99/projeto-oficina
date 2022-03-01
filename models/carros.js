@@ -5,7 +5,7 @@ class Carro extends Models
 {
 
     tabela = 'carros';
-    Caminho = '/veiculo';
+    caminho = '/veiculo';
     
 }
 

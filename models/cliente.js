@@ -7,7 +7,7 @@ const Models = require('./models')
     
 
     tabela = 'clientes'
-    Caminho = '/cliente'
+    caminho = '/cliente'
 
 
 }
