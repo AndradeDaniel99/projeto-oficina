@@ -1,31 +1,31 @@
-const Fornecedor = require('../models/fornecedor')
+const Produto = require('../models/produto')
 
 module.exports = app => {
-    app.get('/fornecedor', (req, res)=> {
-        Fornecedor.lista(res)
+    app.get('/produto', (req, res)=> {
+        Produto.lista(res)
     })
 
-    app.get('/fornecedor/:id', (req, res)=> {
+    app.get('/produto/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Fornecedor.buscaPorId(id, res)
+        Produto.buscaPorId(id, res)
     })
 
-    app.post('/fornecedor', (req, res)=> {
+    app.post('/produto', (req, res)=> {
         console.log(req.body)
-        const fornecedor = req.body
-        Fornecedor.adiciona(fornecedor, res)
+        const produto = req.body
+        Produto.adiciona(produto, res)
     })
 
-    app.put('/fornecedor/:id', (req, res)=> {
+    app.put('/produto/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Fornecedor.altera(id, valores, res)
+        Produto.altera(id, valores, res)
     })
 
-    app.delete('/fornecedor/:id', (req, res)=>{
+    app.delete('/produto/:id', (req, res)=>{
         const id = parseInt(req.params.id)
         
-        Fornecedor.deleta(id, res)
+        Produto.deleta(id, res)
     })
 }

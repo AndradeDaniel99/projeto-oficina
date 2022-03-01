@@ -81,6 +81,30 @@ class Tabelas {
 
     criarProduto(){
         
+        const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`produto` (\
+            `id` INT NOT NULL AUTO_INCREMENT,\
+            `nome` VARCHAR(45) NOT NULL,\
+            `codigo_universal` VARCHAR(45) NULL,\
+            `descricao` VARCHAR(45) NULL,\
+            `info` VARCHAR(45) NULL,\
+            `codigo_fabricante` VARCHAR(45) NULL,\
+            `codigo_familia` VARCHAR(45) NULL,\
+            `codigo_barras` VARCHAR(45) NULL,\
+            `nome_familia` VARCHAR(45) NULL,\
+            `ano` INT NULL,\
+            `quantidade` INT NOT NULL,\
+            `valor` FLOAT NOT NULL,\
+            PRIMARY KEY (`id`));\
+          '
+
+        this.conexao.query(sql, erro => {
+            if (erro) {
+                console.log(erro)
+            } else{
+                console.log('Tabela de produto criada com sucesso')
+            }
+        })
+
     }
 }
 
