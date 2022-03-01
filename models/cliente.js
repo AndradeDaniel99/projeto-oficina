@@ -1,16 +1,19 @@
+
 const conexao = require('../infraestrutura/conexao')
 const moment = require('moment')
-/*const contato = require ('./contato')*/
-import { Contato } from "./contato.js"
+const Contato = require ('./contato')
 
-class Cliente extends Contato{
+
+ class Cliente extends Contato{
     
-    constructor()
-    {
-        this.TipoContato('clientes')
 
-    }
+    tipoContato = 'clientes'
+   /* constructor(Valor)
+    {
+        super(Valor)
+
+    }*/
 
 
 }
-module.exports = new Cliente()
+module.exports = new Cliente('clientes')

@@ -1,19 +1,15 @@
 const conexao = require('../infraestrutura/conexao')
 const moment = require('moment')
 
-export class Contato{
+ class Contato
+{
 
+    tipoContato;
+    /*constructor(valor){
 
-    #_tipoContato;
+    let tipoContato = valor;
 
-    get TipoContato()
-    {
-        return this.#_tipoContato;
-    }
-    set TipoContato(TIPO_DO_CONTATO)
-    {
-        #_tipoContato = TIPO_DO_CONTATO;
-    }
+    }*/
 
 
     adiciona(contato, res){
@@ -37,7 +33,8 @@ export class Contato{
         if (existemErros) {
             res.status(400).json(erros)
         } else{
-            const sql = 'INSERT INTO '+tipoContato+' SET ?'
+            console.log(this.tipoContato)
+            const sql = 'INSERT INTO '+ this.tipoContato + ' SET ?'
 
             conexao.query(sql, contato, (erro, resultados)=>{
                 if (erro) {
