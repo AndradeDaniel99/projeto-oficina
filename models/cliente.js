@@ -8,12 +8,8 @@ const Contato = require ('./contato')
     
 
     tipoContato = 'clientes'
-   /* constructor(Valor)
-    {
-        super(Valor)
 
-    }*/
 
 
 }
-module.exports = new Cliente('clientes')
+module.exports = new Cliente()
