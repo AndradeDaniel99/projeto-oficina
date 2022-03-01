@@ -1,23 +1,26 @@
 const conexao = require('../infraestrutura/conexao')
 const moment = require('moment')
 
-class Contato{
+export class Contato{
+
+
+    #_tipoContato;
+
+    get TipoContato()
+    {
+        return this.#_tipoContato;
+    }
+    set TipoContato(TIPO_DO_CONTATO)
+    {
+        #_tipoContato = TIPO_DO_CONTATO;
+    }
+
 
     adiciona(contato, res){
 
-        const contatoValido = contato.nome.length >=3
+        
 
-        constructor(tipoContato)
-            this.nome = contato.nome
-            this.cpf = contato.cpf
-            this.cnpj = contato.cnpj
-            this.telefone1 = contato.telefone1
-            this.telefone2 = contato.telefone2
-            this.telefone3 = contato.telefone3
-            this.celular = contato.celular
-            this.email = contato.email
-            this.endereco = contato.endereco
-            this.tipoContato = tipoContato
+        const contatoValido = contato.nome.length >=3
 
 
         const validacoes = [
