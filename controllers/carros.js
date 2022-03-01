@@ -6,7 +6,7 @@ module.exports = app => {
     })
 
     app.get('/veiculo/:id', (req, res)=> {
-        const id = parseInt(req.params.idCarros)
+        const id = parseInt(req.params.id)
         const valores = req.body
         Carro.buscaPorId(id, res)
     })
