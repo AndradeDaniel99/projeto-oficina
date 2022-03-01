@@ -12,7 +12,7 @@ const moment = require('moment');
 
         
 
-        const contatoValido = contato.nome.length >=3
+        /*const contatoValido = contato.tabela.length >=3
 
 
         const validacoes = [
@@ -28,7 +28,7 @@ const moment = require('moment');
 
         if (existemErros) {
             res.status(400).json(erros)
-        } else{
+        } else{*/
             console.log(this.tabela)
             const sql = 'INSERT INTO '+ this.tabela + ' SET ?'
 
@@ -39,7 +39,7 @@ const moment = require('moment');
                     res.status(201).json({contato})
                 }
             })
-        }
+        //}
     }
 
     lista(res){
@@ -55,7 +55,7 @@ const moment = require('moment');
     }
 
     buscaPorId(id, res){
-        const sql = 'SELECT * FROM '+tabela+' WHERE id = ' + id
+        const sql = 'SELECT * FROM '+ tabela + ' WHERE id = ' + id
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)

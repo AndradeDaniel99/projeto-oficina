@@ -41,7 +41,7 @@ class Tabelas {
             `COR` VARCHAR(10) NULL,\
             `MARCA` VARCHAR(15) NULL,\
             `MODELO` VARCHAR(15) NULL,\
-            PRIMARY KEY (`idCarros`))\
+            PRIMARY KEY (`ID`))\
           ENGINE = InnoDB\
           DEFAULT CHARACTER SET = utf8;\
           '
