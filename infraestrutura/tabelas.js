@@ -22,7 +22,7 @@ class Tabelas {
             `celular` INT NOT NULL, \
             `email` VARCHAR(45) NULL, \
             `endereco` VARCHAR(45) NULL ,\
-            PRIMARY KEY (`idClientes`)); \
+            PRIMARY KEY (`id`)); \
           '
 
         this.conexao.query(sql, erro => {
@@ -144,6 +144,14 @@ class Tabelas {
             `historico` JSON NULL,\
             PRIMARY KEY (`id`));\
           '
+
+          this.conexao.query(sql, erro => {
+            if (erro) {
+                console.log(erro)
+            } else{
+                console.log('Tabela de estoque criada com sucesso')
+            }
+        })
     }
 }
 
