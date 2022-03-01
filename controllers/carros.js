@@ -2,13 +2,12 @@ const Carro = require('../models/carros')
 
 module.exports = app => {
     app.get('/veiculo', (req, res)=> {
-        Carro.lista(res)
+        Carro.lista(Carro.tabela, res)
     })
 
     app.get('/veiculo/:id', (req, res)=> {
         const id = parseInt(req.params.id)
-        const valores = req.body
-        Carro.buscaPorId(id, res)
+        Carro.buscaPorId(id, Carro.tabela, res)
     })
 
     app.post('/veiculo', (req, res)=> {
@@ -20,7 +19,13 @@ module.exports = app => {
     app.put('/veiculo/:id', (req, res)=> {
         const id = parseInt(req.params.id)
         const valores = req.body
-        Carro.altera(id, valores, res)
+        Carro.altera(id, valores, Carro.tabela, res)
+    })
+
+    app.patch('/veiculo/:id', (req, res)=> {
+        const id = parseInt(req.params.id)
+        const valores = req.body
+        Carro.altera(id, valores, Carro.tabela, res)
     })
 
     app.delete('/veiculo/:id', (req, res)=>{

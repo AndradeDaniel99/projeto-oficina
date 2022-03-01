@@ -42,8 +42,8 @@ const moment = require('moment');
         //}
     }
 
-    lista(res){
-        const sql = 'SELECT * FROM'+tabela
+    lista(tabela, res){
+        const sql = 'SELECT * FROM '+tabela
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
@@ -54,20 +54,20 @@ const moment = require('moment');
         })
     }
 
-    buscaPorId(id, res){
+    buscaPorId(id, tabela, res){
         const sql = 'SELECT * FROM '+ tabela + ' WHERE id = ' + id
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
             } else {
-                res.status(200).json({id})
+                res.status(200).json(resultados)
             }
         })
     }
 
-    altera(id, valores, res){
+    altera(id, valores, tabela, res){
 
-        const sql = 'UPDATE'+tabela+' SET ? WHERE id=?'
+        const sql = 'UPDATE '+tabela+' SET ? WHERE id=?'
         conexao.query(sql, [valores, id], (erro, resultados)=>{
             if (erro) {
                 res.status(400).json(erro)
