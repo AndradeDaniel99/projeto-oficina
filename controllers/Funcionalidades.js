@@ -8,16 +8,17 @@ class Funcionalidade
 
     ler(modelo)
     {
-        console.log(modelo.caminho)
+        //console.log(modelo.caminho)
         module.exports = app =>
         {
-            
-            app.get(modelo.caminho, (req, res)=> 
+            //rota = modelo.caminho
+            console.log(modelo)
+            app.get(modelo, (req, res)=> 
             {
                 modelo.lista(res)
             })
 
-            app.get(modelo.Caminho + '/:id', (req, res)=> {
+            app.get(modelo + '/:id', (req, res)=> {
                 const id = parseInt(req.params.id)
                 const valores = req.body
                 Cliente.buscaPorId(id, res)

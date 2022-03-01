@@ -10,4 +10,4 @@ const Models = require('./models')
     caminho = '/fornecedor'
 
 }
-module.exports = Fornecedor
+module.exports = new Fornecedor()
