@@ -3,7 +3,7 @@ const moment = require('moment')
 const Models = require('./models.js')
  class Produto extends Models
 {
-    tipoContato = 'produto'
+    tabela = 'produto'
     Caminho = '/produto'
 
 }

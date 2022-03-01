@@ -1,4 +1,3 @@
-
 const conexao = require('../infraestrutura/conexao')
 const Models = require('./models')
 
@@ -7,7 +6,7 @@ const Models = require('./models')
  class Cliente extends Models{
     
 
-    tipoContato = 'clientes'
+    tabela = 'clientes'
     Caminho = '/cliente'
 
 

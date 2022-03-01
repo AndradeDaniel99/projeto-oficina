@@ -4,7 +4,7 @@ const Models = require('./models.js')
 class Carro extends Models
 {
 
-    tipoContato = 'carro';
+    tabela = 'carros';
     Caminho = '/veiculo';
     
 }
