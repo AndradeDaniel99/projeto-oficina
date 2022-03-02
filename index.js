@@ -10,6 +10,7 @@ conexao.connect(erro=>{
 
         Tabelas.init(conexao)
         const app = customExpress()
+        app.disable('x-powered-by')
 
         app.listen(3000, ()=> console.log('servidor rodando na porta 3k'))
     }

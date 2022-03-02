@@ -1,7 +1,8 @@
 const Cliente = require('../models/cliente')
+const auth = require('../middlewares/auth')
 
 module.exports = app => {
-    app.get('/cliente', (req, res)=> {
+    app.get('/cliente', auth, (req, res)=> {
         Cliente.lista(Cliente.tabela, res)
     })
 
