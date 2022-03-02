@@ -8,7 +8,7 @@ const moment = require('moment');
     caminho;
 
 
-    adiciona(contato, res){
+    adiciona(objeto, res){
 
         
 
@@ -31,7 +31,9 @@ const moment = require('moment');
         } else{*/
             const sql = 'INSERT INTO '+ this.tabela + ' SET ?'
 
-            conexao.query(sql, contato, (erro, resultados)=>{
+            const object = objeto[1]
+
+            conexao.query(sql, object, (erro, resultados)=>{
                 if (erro) {
                     res.status(400).json({ 
                         'message': 'usuário e/ou senha incorreta!',
@@ -40,7 +42,7 @@ const moment = require('moment');
                 } else{
                     res.status(200).json({ 
                         'auth': 'logado',
-                        contato
+                        object
                     })
                 }
             })
