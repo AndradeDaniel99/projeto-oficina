@@ -113,7 +113,7 @@ const moment = require('moment');
             } else {
                 res.status(200).json({ 
                     'auth': 'logado',
-                    resultados
+                    id
                 })
             }
         })
