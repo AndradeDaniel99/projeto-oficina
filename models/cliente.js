@@ -26,4 +26,5 @@ const Models = require('./models')
         })
     }
 }
+
 module.exports = new Cliente()
