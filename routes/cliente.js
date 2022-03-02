@@ -3,7 +3,7 @@ const auth = require('../middlewares/auth')
 
 module.exports = app => {
     app.get('/cliente', auth, (req, res)=> {
-        console.log(req.body[1])
+        //console.log(req.body[1])
         Cliente.lista(res)
     })
 
