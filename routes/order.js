@@ -1,13 +1,13 @@
 const Order = require('../models/order')
+const auth = require('../middlewares/auth')
 
 module.exports = app => {
-    app.get('/order', (req, res)=> {
+    app.get('/order', auth, (req, res)=> {
         Order.lista(Order.tabela, res)
     })
 
     app.get('/order/:id', (req, res)=> {
         const id = parseInt(req.params.id)
-        const valores = req.body
         Order.buscaPorId(id, Order.tabela, res)
     })
 

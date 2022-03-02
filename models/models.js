@@ -29,62 +29,90 @@ const moment = require('moment');
         if (existemErros) {
             res.status(400).json(erros)
         } else{*/
-            console.log(this.tabela)
             const sql = 'INSERT INTO '+ this.tabela + ' SET ?'
 
             conexao.query(sql, contato, (erro, resultados)=>{
                 if (erro) {
-                    res.status(400).json(erro)
+                    res.status(400).json({ 
+                        'message': 'usuário e/ou senha incorreta!',
+                        erro
+                    })
                 } else{
-                    res.status(201).json({contato})
+                    res.status(200).json({ 
+                        'auth': 'logado',
+                        contato
+                    })
                 }
             })
         //}
     }
 
-    lista(tabela, res){
-        const sql = 'SELECT * FROM '+tabela
+    lista(res){
+        const sql = 'SELECT * FROM '+this.tabela+";"
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
-                res.status(400).json(erro)
+                res.status(400).json({ 
+                    message: 'usuário e/ou senha incorreta!',
+                    valores
+                })
             } else {
-                res.status(200).json(resultados)
+                res.status(200).json({ 
+                    'auth': 'logado',
+                    resultados
+                })
             }
         })
     }
 
-    buscaPorId(id, tabela, res){
-        const sql = 'SELECT * FROM '+ tabela + ' WHERE id = ' + id
+    buscaPorId(id, res){
+        const sql = 'SELECT * FROM '+ this.tabela + ' WHERE id = ' + id
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
-                res.status(400).json(erro)
+                res.status(400).json({ 
+                    message: 'usuário e/ou senha incorreta!'
+                })
             } else {
-                res.status(200).json(resultados)
+                res.status(200).json({ 
+                    'auth': 'logado',
+                    resultados
+                })
             }
         })
     }
 
-    altera(id, valores, tabela, res){
+    altera(id, valores, res){
 
-        const sql = 'UPDATE '+tabela+' SET ? WHERE id=?'
+        const sql = 'UPDATE '+this.tabela+' SET ? WHERE id=?'
         conexao.query(sql, [valores, id], (erro, resultados)=>{
+
             if (erro) {
-                res.status(400).json(erro)
+                res.status(400).json({ 
+                    message: 'usuário e/ou senha incorreta!'
+                })
             } else {
-                res.status(200).json({...valores, id})
+                res.status(200).json({ 
+                    'auth': 'logado',
+                    ...valores, 
+                    id
+                })
             }
         })
     }
 
-    deleta(id, tabela, res){
-        const sql = 'DELETE FROM '+tabela+ ' WHERE id = ' + id
+    deleta(id, res){
+        const sql = 'DELETE FROM '+this.tabela+ ' WHERE id = ' + id
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
-                res.status(400).json(erro)
+                res.status(400).json({ 
+                    message: 'usuário e/ou senha incorreta!'
+                })
             } else {
-                res.status(200).json(resultados)
+                res.status(200).json({ 
+                    'auth': 'logado',
+                    resultados
+                })
             }
         })
     }

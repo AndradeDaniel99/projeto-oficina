@@ -1,7 +1,7 @@
 const conexao = require('../infraestrutura/conexao')
 const Models = require('./models.js')
 
-class Carro extends Models
+class Veiculo extends Models
 {
 
     tabela = 'carros';
@@ -9,4 +9,4 @@ class Carro extends Models
     
 }
 
-module.exports = new Carro()
+module.exports = new Veiculo()
