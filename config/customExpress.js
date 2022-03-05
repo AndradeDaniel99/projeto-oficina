@@ -7,10 +7,6 @@ const compression = require('compression')
 
 module.exports = () => {
     const app = express()
-    app.use(cors())
-    app.use(compression())
-    app.use(express.urlencoded({extended: true}))
-    app.use(express.json())
 
     consign({
         cwd: 'app',
