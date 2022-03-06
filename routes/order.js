@@ -34,4 +34,8 @@ module.exports = app => {
         
         Order.deleta(id, Order.tabela, res)
     })
+
+
+
+
 }

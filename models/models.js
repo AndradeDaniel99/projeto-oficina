@@ -12,23 +12,7 @@ const moment = require('moment');
 
         
 
-        /*const contatoValido = contato.tabela.length >=3
-
-
-        const validacoes = [
-            {
-                nome: 'contato',
-                valido: contatoValido,
-                mensagem: 'o campo deve ter pelo menos 3 caracteres'
-            }
-        ]
-
-        const erros = validacoes.filter(campo => !campo.valido)
-        const existemErros = erros.length
-
-        if (existemErros) {
-            res.status(400).json(erros)
-        } else{*/
+      
             const sql = 'INSERT INTO '+ this.tabela + ' SET ?'
 
             const object = objeto[1]
@@ -46,7 +30,7 @@ const moment = require('moment');
                     })
                 }
             })
-        //}
+        
     }
 
     lista(res){
@@ -83,7 +67,15 @@ const moment = require('moment');
         })
     }
 
-    altera(id, valores, res){
+
+
+    altera(id, valores, res)
+    {
+        
+        this.#_Altera(id, valores, res)
+    }
+
+    #_Altera(id, valores, res){
 
         const sql = 'UPDATE '+this.tabela+' SET ? WHERE id=?'
         const valor1 = valores[1]
