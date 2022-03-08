@@ -71,13 +71,13 @@ const moment = require('moment');
 
     altera(id, valores, res)
     {
-        
-        this.#_Altera(id, valores, res)
+        const sql = 'UPDATE '+this.tabela+' SET ? WHERE id=?'
+        this._Altera(id, sql, valores, res)
+
     }
 
-    #_Altera(id, valores, res){
+    _Altera(id, sql, valores, res){
 
-        const sql = 'UPDATE '+this.tabela+' SET ? WHERE id=?'
         const valor1 = valores[1]
         conexao.query(sql, [valores[1], id], (erro, resultados)=>{
 
