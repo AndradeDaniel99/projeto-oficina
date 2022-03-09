@@ -1,6 +1,7 @@
 const conexao = require('../infraestrutura/conexao')
 const Models = require('./models');
 const Estoque = require('./estoque.js')
+const Cliente = require('./cliente.js')
 
 
 class Order extends Models
@@ -14,12 +15,12 @@ class Order extends Models
         this.RetiraPeca()
         if(this.CheckCliente())
         {
-            this.addCliente()
+            Cliente.adiciona()
         }
 
     }
 
-    RetiraPeca(id, valores, res)
+    RetiraPeca(buscador, valores, res)
     {
         altera(id, valores, res)
         {
@@ -28,6 +29,26 @@ class Order extends Models
     
         }
 
+
+    }
+
+    CheckCliente(id)
+    
+    {
+
+        const sql = 'SELECT EXISTS(SELECT 1 FROM clientes WHERE ID = '+ id +') AS EXISTE;'
+        conexao.query(sql, (erro, resultados)=>{
+            if (erro) {
+                res.status(400).json({ 
+                    message: 'usuário e/ou senha incorreta!'
+                })
+            } else {
+                res.status(200).json({ 
+                    'auth': 'logado',
+                    resultados
+                })
+            }
+        })
 
     }*/
 
