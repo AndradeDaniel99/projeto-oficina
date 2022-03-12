@@ -11,20 +11,24 @@ class Order extends Models
     caminho = '/order'
 
     /*constructor(entradas)
+
     {
+        this.ProcuraPeca()
+
         this.RetiraPeca()
-        if(this.CheckCliente())
+
+        if(this.CheckCliente() == 0)
         {
             Cliente.adiciona()
         }
 
     }
 
-    RetiraPeca(buscador, valores, res)
+    RetiraPeca(id, res)
     {
         altera(id, valores, res)
         {
-            const sql = 'UPDATE' + Estoque.tabela + 'SET quantidade = (quantidade - 1) WHERE'+ buscador+ '='+ produto +';'
+            const sql = 'UPDATE' + Estoque.tabela + 'SET quantidade = (quantidade - 1) WHERE id ='+id+';'
             this._Altera(id, sql, valores, res)
     
         }
@@ -50,12 +54,20 @@ class Order extends Models
             }
         })
 
-    }*/
+    }
+
+    ProcuraPeca(buscador, caracteristica)
+    {
+        const sql = 'SELECT id FROM oficina.estoque WHERE'+ buscador +'='+ caracteristica+';';
+
+        //retornar valor da peça tbm 
+    }
+
 
 
     
 
-}
+}*/
 
 
 
