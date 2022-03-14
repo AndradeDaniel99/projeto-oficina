@@ -1,3 +1,4 @@
+/*
 module.exports = (req, res, next) => {
     const [{username, password}] = req.body
 
@@ -7,4 +8,4 @@ module.exports = (req, res, next) => {
     return res.json({ 
         message: 'usuário e/ou senha incorreta!'
     })
-}
+}*/
