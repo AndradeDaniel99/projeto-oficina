@@ -7,66 +7,26 @@ const Cliente = require('./cliente.js')
 class Order extends Models
 {
 
-    tabela = 'order'
-    caminho = '/order'
+    tabela = 'order';
+    caminho = '/order';
 
-    /*constructor(entradas)
-
+    /*constructor(req)
     {
-        this.ProcuraPeca()
 
-        this.RetiraPeca()
-
-        if(this.CheckCliente() == 0)
+        if(!checkCliente())
         {
-            Cliente.adiciona()
-        }
-
-    }
-
-    RetiraPeca(id, res)
-    {
-        altera(id, valores, res)
-        {
-            const sql = 'UPDATE' + Estoque.tabela + 'SET quantidade = (quantidade - 1) WHERE id ='+id+';'
-            this._Altera(id, sql, valores, res)
-    
+            InfoCliente = ...;
+            Cliente.adiciona(InfoCliente);
         }
 
 
-    }
-
-    CheckCliente(id)
-    
-    {
-
-        const sql = 'SELECT EXISTS(SELECT 1 FROM clientes WHERE ID = '+ id +') AS EXISTE;'
-        conexao.query(sql, (erro, resultados)=>{
-            if (erro) {
-                res.status(400).json({ 
-                    message: 'usuário e/ou senha incorreta!'
-                })
-            } else {
-                res.status(200).json({ 
-                    'auth': 'logado',
-                    resultados
-                })
-            }
-        })
-
-    }
-
-    ProcuraPeca(buscador, caracteristica)
-    {
-        const sql = 'SELECT id FROM oficina.estoque WHERE'+ buscador +'='+ caracteristica+';';
-
-        //retornar valor da peça tbm 
-    }
+        idCliente = GetClienteId(cpfCliente)
+        
 
 
 
-    
-*/
+
+    }*/
 }
 
 

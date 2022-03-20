@@ -13,7 +13,7 @@ const moment = require('moment');
         
 
       
-            const sql = 'INSERT INTO '+ this.tabela + ' SET ?'
+            const sql = 'INSERT INTO Oficina.'+this.tabela + ' SET ?'
 
             const object = objeto[1]
 
@@ -34,7 +34,7 @@ const moment = require('moment');
     }
 
     lista(res){
-        const sql = 'SELECT * FROM '+this.tabela+";"
+        const sql = 'SELECT * FROM Oficina.'+this.tabela+";"
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
@@ -52,7 +52,7 @@ const moment = require('moment');
     }
 
     buscaPorId(id, res){
-        const sql = 'SELECT * FROM '+ this.tabela + ' WHERE id = ' + id
+        const sql = 'SELECT * FROM Oficina.'+this.tabela + ' WHERE id = ' + id
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json({ 
@@ -71,7 +71,7 @@ const moment = require('moment');
 
     altera(id, valores, res)
     {
-        const sql = 'UPDATE '+this.tabela+' SET ? WHERE id=?'
+        const sql = 'UPDATE Oficina.'+this.tabela+' SET ? WHERE id=?'
         this._Altera(id, sql, valores, res)
 
     }
@@ -96,7 +96,7 @@ const moment = require('moment');
     }
 
     deleta(id, res){
-        const sql = 'DELETE FROM '+this.tabela+ ' WHERE id = ' + id
+        const sql = 'DELETE FROM Oficina.'+this.tabela+ ' WHERE id = ' + id
 
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
