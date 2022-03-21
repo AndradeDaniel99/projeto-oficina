@@ -1,7 +1,8 @@
 const conexao = require('../infraestrutura/conexao')
 const Models = require('./models');
 const Estoque = require('./estoque.js')
-const Cliente = require('./cliente.js')
+const Cliente = require('./cliente.js');
+const res = require('express/lib/response');
 
 
 class Order extends Models
@@ -10,7 +11,7 @@ class Order extends Models
     tabela = 'order';
     caminho = '/order';
 
-    /*constructor(req)
+    constructor(req)
     {
 
         if(!checkCliente())
@@ -21,12 +22,17 @@ class Order extends Models
 
 
         idCliente = GetClienteId(cpfCliente)
+        tipo = res;
+        valor_mao = res;
+        data_saida = res;
+
+
+        getPeca()
+        RetiraPeca()
+
         
 
-
-
-
-    }*/
+    }
 }
 
 
