@@ -11,28 +11,47 @@ class Order extends Models
     tabela = 'order';
     caminho = '/order';
 
-    constructor(req)
+    /*checkCliente()
+    checkProduto()
+    retiraPeca()
+    
+    Integra(res)
     {
 
-        if(!checkCliente())
+        temCliente = checkCliente(res.cpf).boleano;
+        if (!temCliente)
         {
-            InfoCliente = ...;
-            Cliente.adiciona(InfoCliente);
+            Cliente.adiciona(parametros_cliente);
+            //retornar id cliente
+            //idCliente =
+        }
+        else
+        {
+            idCliente = checkCliente().id;
+
         }
 
 
-        idCliente = GetClienteId(cpfCliente)
-        tipo = res;
-        valor_mao = res;
-        data_saida = res;
+        Peca = checkProduto(res.nome_peca).boleano;
+        idProduto = Peca.idProduto
+        //Peca tem boleano, idProduto, Valor
 
-
-        getPeca()
-        RetiraPeca()
-
+        if(Peca.boleano)
+        {
+            retiraPeca(idProduto);
         
+        }
+        else
+        {
+            throw Error;
+        }
 
-    }
+
+        return Tudo;
+
+
+    }*/
+
 }
 
 
