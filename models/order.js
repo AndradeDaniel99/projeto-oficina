@@ -11,19 +11,37 @@ class Order extends Models
     tabela = 'order';
     caminho = '/order';
 
-    /*checkCliente()
+    checkCliente()
+    {
+        const sql = 'SELECT EXISTS(SELECT 1 FROM clientes WHERE ID = '+ id +') AS EXISTE;';
+        // retorna 0 se nao existir e 1 se existir 
+
+    }
+
     checkProduto()
-    retiraPeca()
+    {
+        
+
     
-    Integra(res)
+    }
+
+
+    retiraPeca(idProduto)
+    {
+        const sql = 'UPDATE' + Estoque.tabela + 'SET quantidade = (quantidade - 1) WHERE id ='+idProduto+';';
+        // Codigo SQL para retirar peça
+    }
+    
+    Integra(res) // Codigo para adicionar uma nova ordem de serviço 
     {
 
         temCliente = checkCliente(res.cpf).boleano;
-        if (!temCliente)
+        // Verificar se o cliente ja existe para ou adicionar ou entao levar o idCliente para poder adicionar o ordem
+        if (!temCliente) // se nao existir vai adicionar
         {
             Cliente.adiciona(parametros_cliente);
-            //retornar id cliente
-            //idCliente =
+
+            //idCliente = FALTANDO
         }
         else
         {
@@ -31,26 +49,42 @@ class Order extends Models
 
         }
 
+        idProduto = [];
 
-        Peca = checkProduto(res.nome_peca).boleano;
-        idProduto = Peca.idProduto
-        //Peca tem boleano, idProduto, Valor
+        NumeroPeca = res.nome_peca.length;
 
-        if(Peca.boleano)
+
+        // Pode exisitir mais de uma peça na ordem, logo isso vai percorrer um array de entrada com todas as peças
+        for (let i = 0; i <= NumeroPeca; i++)
         {
-            retiraPeca(idProduto);
-        
+            Peca = checkProduto(res.nome_peca[i]);
+            // Peça tem booleano, idProduto e valor 
+
+
+            idProduto.push(Peca.idProduto);
+            // TRATAR VALOR
+
+            if(Peca.boleano)
+            {
+                retiraPeca(idProduto);
+                //retirar peça q vai ser usada na ordem
+            }
+            else
+            {
+                throw Error;
+                // se a peça estiver em falta lançar erro
+            }
         }
-        else
-        {
-            throw Error;
-        }
+
+
+        //ADICIONAR HISTORICOO
 
 
         return Tudo;
+        //retorna json para add no adiciona da ordem
 
 
-    }*/
+    }
 
 }
 
