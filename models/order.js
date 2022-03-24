@@ -11,10 +11,11 @@ class Order extends Models
     tabela = 'order';
     caminho = '/order';
 
-    /*checkCliente()
+   /* checkCliente()
     {
         const sql = 'SELECT EXISTS(SELECT 1 FROM clientes WHERE ID = '+ id +') AS EXISTE;';
         // retorna 0 se nao existir e 1 se existir 
+
 
     }
 
@@ -30,6 +31,7 @@ class Order extends Models
     {
         const sql = 'UPDATE' + Estoque.tabela + 'SET quantidade = (quantidade - 1) WHERE id ='+idProduto+';';
         // Codigo SQL para retirar peça
+        
     }
     
     Integra(res) // Codigo para adicionar uma nova ordem de serviço 
@@ -85,6 +87,8 @@ class Order extends Models
 
 
     }*/
+
+
 
 }
 
