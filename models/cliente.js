@@ -8,7 +8,11 @@ const Models = require('./models')
     tabela = 'clientes'
     caminho = '/cliente'
 
-    
+    GetId(nome){
+
+        
+
+    }
 }
 
 module.exports = new Cliente()

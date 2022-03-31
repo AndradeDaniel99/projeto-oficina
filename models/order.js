@@ -12,49 +12,43 @@ class Order extends Models
     tabela = 'order';
     caminho = '/order';
 
-    /*
-   Check(idCheck, tabela)
-    {
-        const sql = 'SELECT EXISTS(SELECT 1 FROM' + tabela + ' WHERE ID = '+ idCheck +') AS EXISTE;';
-        // retorna 0 se nao existir e 1 se existir 
 
-        //ADD CONEXÃO 
-
-
-
-
-
-        //return VALOR 0 ou 1
-    }
-
-
-
-    retiraPeca(idProduto)
+    /*retiraPeca(idProduto)
     {
         const sql = 'UPDATE' + Estoque.tabela + 'SET quantidade = (quantidade - 1) WHERE id ='+idProduto+';';
         // Codigo SQL para retirar peça, retira uma peça nao retorna nada 
+        // ADD CONEXÃO
         
     }
 
     
-    Integra(res) // Codigo para adicionar uma nova ordem de serviço 
+    TratarCliente(res) // Codigo para adicionar uma nova ordem de serviço 
     {
 
-        temCliente = Check(res.nome, Cliente.tabela);
+        idCliente = Cliente.GetId(res.nome)
+
         // Verificar se o cliente ja existe para ou adicionar ou entao levar o idCliente para poder adicionar o ordem
-        if (!temCliente) // se nao existir vai adicionar
+        if (idCliente == null) // se nao existir vai adicionar
         {
+
             Cliente.adiciona(parametros_cliente);
 
-            //idCliente = GetId()
+            let idCliente = Cliente.GetId(res.nome)
+            // res mesmo?
+
+            return idCliente
         }
         
-        let idCliente = GetId()
+        let idCliente = Cliente.GetId(res.nome)
+
+        return idCliente
+
+    }
+    
+    TratarProduto(res){
 
 
-
-
-        let idProduto = [];
+        let idProdutos = [];
         let Valor = 0;
 
         NumeroPeca = res.nome_peca.length;
@@ -62,30 +56,36 @@ class Order extends Models
 
         // Pode exisitir mais de uma peça na ordem, logo isso vai percorrer um array de entrada com todas as peças
         for (let i = 0; i <= NumeroPeca; i++)
-        {
-            temProduto = Check(res.nome_peca[i], Produto.tabela);
+        {   
+
+            let idDoProduto = Estoque.GetId(res.nome_peca[i])
             // Ve se exisite 
 
 
-            if(temProduto)
+            if(temProduto != null)
             {
-                retiraPeca(idProduto);
-                idProduto.push(Peca.idProduto);
+                retiraPeca(idDoProduto);
                 //retirar peça q vai ser usada na ordem
+
+
+                idProdutos.push(idDoProduto);
+                //Inserir id no array
+
+                //TRATAR VALOR DA PEÇA
+
             }
             else
             {
                 throw Error;
                 // se a peça estiver em falta lançar erro
             }
+
+            return [idProdutos, Valor]
         }
 
 
         //ADICIONAR HISTORICOO
 
-
-        return Tudo;
-        //retorna json para add no adiciona da ordem
 
 
     }*/

@@ -8,6 +8,9 @@ const moment = require('moment');
     caminho;
 
 
+
+
+
     adiciona(objeto, res){
 
         
@@ -111,6 +114,23 @@ const moment = require('moment');
             }
         })
     }
+
+    GetId(json){
+
+        let Buscador = Object.keys(json)[0];
+        let valor = json[Buscador];
+
+        const sql = "SELECT ID As idCliente FROM "+ this.tabela + " WHERE "+ Buscador + " = "+ valor + ";"
+        
+        // ADD CONEXÃO
+
+
+
+    }
+
+
+
+
 }
 
 module.exports = Models
