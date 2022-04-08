@@ -2,17 +2,26 @@ const conexao = require('../infraestrutura/conexao')
 const Models = require('./models.js')
 const moment = require('moment')
 
-
+/**
+ * classe que representa o estoque
+ */
  class Estoque extends Models {
     tabela = 'estoque'
     caminho = '/estoque'
 
+    /**
+     * adiciona um produto no estoque
+     * @param {*} produto 
+     * @param {*} res 
+     */
     adiciona(produto, res){
 
         const createdAt = moment().format('YYYY-MM-DD HH:MM:SS')
         const produtoValido = produto.nome.length >=3
 
-
+        /**
+         * faz a validacao do produto
+         */
         const validacoes = [
             {
                 nome: 'produto',
@@ -41,4 +50,7 @@ const moment = require('moment')
 
 }
 
+/**
+ * exporta um objeto do tipo Estoque
+ */
 module.exports = new Estoque()

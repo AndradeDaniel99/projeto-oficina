@@ -5,7 +5,9 @@ const Cliente = require('./cliente.js');
 const res = require('express/lib/response');
 const Produto = require('./produto.js')
 
-
+/**
+ * classe que representa as ordens de servico no sistema
+ */
 class Order extends Models
 {
 
@@ -94,7 +96,7 @@ class Order extends Models
 
 }
 
-
-
-
+/**
+ * exporta um objeto do tipo Order
+ */
 module.exports = new Order()

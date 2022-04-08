@@ -1,25 +1,29 @@
 const conexao = require('../infraestrutura/conexao')
 const moment = require('moment');
 
+/**
+ * classe pai que representa os modelos mais usados pelas outras classes
+ */
  class Models
 {
 
     tabela;
     caminho;
 
-
-
-
-
+    /**
+     * adiciona um objeto a uma tabela mysql
+     * @param {*} objeto 
+     * @param {*} res 
+     */
     adiciona(objeto, res){
 
-        
-
-      
             const sql = 'INSERT INTO Oficina.'+this.tabela + ' SET ?'
 
             const object = objeto[1]
 
+            /**
+             * faz a conexao com o bd mysql
+             */
             conexao.query(sql, object, (erro, resultados)=>{
                 if (erro) {
                     res.status(400).json({ 
@@ -36,9 +40,16 @@ const moment = require('moment');
         
     }
 
+    /**
+     * lista os objetos em uma tabela mysql
+     * @param {*} res 
+     */
     lista(res){
         const sql = 'SELECT * FROM Oficina.'+this.tabela+";"
 
+        /**
+        * faz a conexao com o bd mysql
+        */
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json({ 
@@ -54,8 +65,16 @@ const moment = require('moment');
         })
     }
 
+    /**
+     * busca um objeto por ID em uma tabela mysql
+     */
     buscaPorId(id, res){
+
         const sql = 'SELECT * FROM Oficina.'+this.tabela + ' WHERE id = ' + id
+
+        /**
+         * faz a conexao com o bd mysql
+         */
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json({ 
@@ -71,7 +90,12 @@ const moment = require('moment');
     }
 
 
-
+    /**
+     * altera valores de um objeto em uma tabela mysql
+     * @param {number} id 
+     * @param {*} valores 
+     * @param {*} res 
+     */
     altera(id, valores, res)
     {
         const sql = 'UPDATE Oficina.'+this.tabela+' SET ? WHERE id=?'
@@ -79,6 +103,7 @@ const moment = require('moment');
 
     }
 
+   
     _Altera(id, sql, valores, res){
 
         const valor1 = valores[1]
@@ -98,9 +123,17 @@ const moment = require('moment');
         })
     }
 
+    /**
+     * deleta um objeto de uma tabela mysql de acordo com seu ID
+     * @param {*} id 
+     * @param {*} res 
+     */
     deleta(id, res){
         const sql = 'DELETE FROM Oficina.'+this.tabela+ ' WHERE id = ' + id
 
+        /**
+         * conecta com o bd mysql
+         */
         conexao.query(sql, (erro, resultados)=>{
             if (erro) {
                 res.status(400).json({ 
@@ -115,6 +148,10 @@ const moment = require('moment');
         })
     }
 
+    /**
+     * Retorna o ID de um objeto em uma tabela mysql
+     * @param {JSON} json 
+     */
     getId(json){
 
         let Buscador = Object.keys(json)[0];
@@ -134,14 +171,10 @@ const moment = require('moment');
                 })
             }
         })
-
-
-
     }
-
-
-
-
 }
 
+/**
+ * nome do modulo
+ */
 module.exports = Models

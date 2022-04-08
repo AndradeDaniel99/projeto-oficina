@@ -1,5 +1,12 @@
+/**
+ * Classe representando as tabelas do banco de dados
+ */
 class Tabelas {
 
+    /**
+     * @constructor
+     * @param {*} conexao 
+     */
     init(conexao){
        this.conexao = conexao
 
@@ -12,6 +19,9 @@ class Tabelas {
        
     }
 
+    /**
+     * cria tabela de clientes no bd mysql
+     */
     criarClientes(){
         const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`Clientes` ( \
             `ID` INT NOT NULL AUTO_INCREMENT, \
@@ -36,6 +46,9 @@ class Tabelas {
         })
     }
 
+    /**
+     * cria a tabela de carros no bd mysql
+     */
     criarCarros(){
         const sql = 'CREATE TABLE IF NOT EXISTS `oficina`.`carros` (\
             `ID` INT NOT NULL AUTO_INCREMENT,\
@@ -57,6 +70,9 @@ class Tabelas {
         })
     }
 
+    /**
+     * cria a tabela de fornecedor no bd mysql
+     */
     criarFornecedor(){
         const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`fornecedor` (  \
             `id` INT NOT NULL AUTO_INCREMENT,  \
@@ -81,6 +97,9 @@ class Tabelas {
         })
     }
 
+    /**
+     * cria a tabela de produto no bd mysql
+     */
     criarProduto(){
         
         const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`produto` (\
@@ -109,6 +128,9 @@ class Tabelas {
 
     }
 
+    /**
+     * cria a tabela de ordens no bd mysql
+     */
     criarOrder(){
         const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`order` (\
             `id` INT NOT NULL AUTO_INCREMENT,\
@@ -133,6 +155,9 @@ class Tabelas {
         })
     }
 
+    /**
+     * cria a tabela de estoque no bd mysql
+     */
     criarEstoque(){
         const sql = 'CREATE TABLE IF NOT EXISTS `Oficina`.`estoque` (\
             `id` INT NOT NULL AUTO_INCREMENT,\
@@ -156,4 +181,7 @@ class Tabelas {
     }
 }
 
+/**
+ * nome do modulo
+ */
 module.exports = new Tabelas

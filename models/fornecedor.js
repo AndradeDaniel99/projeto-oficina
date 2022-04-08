@@ -1,7 +1,9 @@
 const conexao = require('../infraestrutura/conexao')
 const Models = require('./models')
 
-
+/**
+ * classe que representa um fornecedor
+ */
  class Fornecedor extends Models{
     
 
@@ -9,4 +11,8 @@ const Models = require('./models')
     caminho = '/fornecedor'
 
 }
+
+/**
+ * exporta um objeto do tipo Fornecedor
+ */
 module.exports = new Fornecedor()
