@@ -23,6 +23,7 @@ module.exports = app => {
         Fornecedor.buscaPorId(id, res)
     })
 
+    
     app.post('/fornecedor', (req, res)=> {
         console.log(req.body)
         const fornecedor = req.body
