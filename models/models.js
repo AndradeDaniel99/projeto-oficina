@@ -17,14 +17,14 @@ const moment = require('moment');
      */
     adiciona(objeto, res){
 
-            const sql = 'INSERT INTO Oficina.'+this.tabela + ' SET ?'
+            const sql = 'INSERT INTO Oficina.'+this.tabela + ' SET ' + objeto
 
-            const object = objeto[1]
+            //const object = objeto[1]
 
             /**
              * faz a conexao com o bd mysql
              */
-            conexao.query(sql, object, (erro, resultados)=>{
+            conexao.query(sql, (erro, resultados)=>{
                 if (erro) {
                     res.status(400).json({ 
                         'message': 'usuário e/ou senha incorreta!',
@@ -32,8 +32,7 @@ const moment = require('moment');
                     })
                 } else{
                     res.status(200).json({ 
-                        'auth': 'logado',
-                        object
+                        resultados
                     })
                 }
             })
@@ -58,7 +57,6 @@ const moment = require('moment');
                 })
             } else {
                 res.status(200).json({ 
-                    'auth': 'logado',
                     resultados
                 })
             }
@@ -82,7 +80,6 @@ const moment = require('moment');
                 })
             } else {
                 res.status(200).json({ 
-                    'auth': 'logado',
                     resultados
                 })
             }

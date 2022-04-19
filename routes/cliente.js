@@ -28,7 +28,7 @@ module.exports = app => {
      * recebe dados de um cliente e adiciona no bd mysql atraves da rota /cliente
      */
     app.post('/cliente', (req, res)=> {
-        console.log(req.body[1])
+        console.log(req.body)
         const cliente = req.body
         Cliente.adiciona(cliente, res)
     })
