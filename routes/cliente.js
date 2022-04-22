@@ -20,7 +20,6 @@ module.exports = app => {
      */
     app.get('/cliente/:id', (req, res)=> {
         const id = parseInt(req.params.id)
-        const valores = req.body
         Cliente.buscaPorId(id, res)
     })
 
@@ -28,7 +27,7 @@ module.exports = app => {
      * recebe dados de um cliente e adiciona no bd mysql atraves da rota /cliente
      */
     app.post('/cliente', (req, res)=> {
-        console.log(req.body)
+        console.log(req.params)
         const cliente = req.body
         Cliente.adiciona(cliente, res)
     })
